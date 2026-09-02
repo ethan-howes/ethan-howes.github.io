@@ -24,7 +24,7 @@ specific wall
 Talus ingests a USGS DEM and geology polygons, runs GPU-accelerated
 terrain analysis to find likely rockfall source zones, pulls temperature
 forecasts to compute freeze-thaw risk windows, and scores each route by its
-proximity to hazards uphill of it. Results land on a map with source
+proximity to hazards uphill of it. Results are displayed on a map with source
 zone overlays and webhook alerts when risk crosses a predefined threshold.
 
 The greatest engineering constraint here is scale. A single climbing area at
