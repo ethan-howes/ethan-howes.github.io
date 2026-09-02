@@ -27,13 +27,12 @@ wide: true
           <span class="skill">CUDA</span>
           <span class="skill">PostGIS</span>
           <span class="skill">Docker</span>
-          <span class="skill">Leaflet.js</span>
         </div>
         <p>
           End-to-end pipeline that turns a raw USGS elevation model into concrete
           rockfall risk scores for a climbing wall. GPU terrain kernels identify
           source zones above a route and combine with freeze-thaw windows to flag
-          hazardous days — the Sobel slope/aspect kernel runs 10.6× faster on a
+          hazardous days. The Sobel slope/aspect kernel runs 10.6× faster on a
           GTX 1060 than a single-threaded CPU baseline (569&nbsp;ms vs 6,041&nbsp;ms over 116.9M cells).
         </p>
         <div class="project-links">
