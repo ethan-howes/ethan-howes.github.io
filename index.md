@@ -22,5 +22,5 @@ My interest lies in building systems end to end. From the bare-metal infrastruct
 - **May 2026:** Joined Collins Aerospace as a Software Engineering Intern.
 - **June 2026:** Created [Talus](/projects/talus/), a GPU-accelerated rockfall hazard pipeline for climbing areas.
 - **May 2026:** Built [Proxmox Datacenter](/projects/proxmox-datacenter/), a Dell PowerEdge R510 homelab provisioned end-to-end with Terraform and Cloud-Init.
-- **Feb 2026:** Co-authored [*A Pragmatic Guide to Building Conservative Discrete Abstractions of Cyber-Physical Systems*](https://arxiv.org/abs/2608.10254) with the [TEA Laboratory](https://tea.ece.ufl.edu/), with the [CEGAR abstraction tutorial](https://github.com/ethan-howes/cegar-abstraction-tutorial) as companion code.
+- **Feb 2026:** Co-authored [*A Pragmatic Guide to Building Conservative Discrete Abstractions of Cyber-Physical Systems*](https://arxiv.org/abs/2608.10254) with the [TEA Laboratory](https://tea.ece.ufl.edu/).
 - **June 2025:** Joined [Trustworthy Engineered Autonomy Laboratory](https://tea.ece.ufl.edu/) as a Software Engineering Researcher.
