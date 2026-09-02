@@ -12,7 +12,7 @@ Hello, I'm Ethan. I am a Computer Engineering Student at [The University of Flor
 
 Currently a software engineering intern at **Collins Aerospace** working on low latency communication networks. Previously at UF's **Trustworthy Engineered Autonomy Laboratory**.
 
-<!-- [1–2 sentences on what drives your work — the problems you care about, the kind of impact you want to have, or what you find most interesting technically.] -->
+My interest lies in building systems end to end. From the bare-metal infrastructure I design and operate to the computer vision and ML pipelines that run on top of it. I'm drawn to problems where the hardware, the software, and the real-world application have to work together.
 
 ---
 
