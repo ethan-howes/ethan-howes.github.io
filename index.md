@@ -20,4 +20,5 @@ My interest lies in building systems end to end. From the bare-metal infrastruct
 - **September 2026:** Joined the [Florida Institute of National Security](https://fins.institute.ufl.edu/) as an AI researcher.
 - **August 2026:** Continued work at Collins Aerospace as a remote Software Engineering Co-op.
 - **May 2026:** Joined Collins Aerospace as a Software Engineering Intern.
+- **June 2026:** Created [Talus](/projects/talus/), a GPU-accelerated rockfall hazard pipeline for climbing areas.
 - **June 2025:** Joined Trustworthy Engineered Autonomy Laboratory as a Software Engineering Researcher.
