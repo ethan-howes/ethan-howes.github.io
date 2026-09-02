@@ -16,21 +16,22 @@ permalink: /projects/talus/
 <!-- ── LEAD ──────────────────────────────────────────────── -->
 
 Rockfall is one of the leading causes of death and serious injury in outdoor
-rock climbing and has no standardized or meaningful methods of detection or dissemination
+rock climbing and has no standardized or meaningful methods of detection or dissemination.
 Talus seeks to provide climbers with rockfall danger report by creating an end-to-end pipeline
 that turns a public elevation model into a concrete rockfall risk score for a
-specific wall: it ingests a USGS DEM and geology polygons, runs GPU-accelerated
+specific wall
+
+Talus ingests a USGS DEM and geology polygons, runs GPU-accelerated
 terrain analysis to find likely rockfall source zones, pulls temperature
 forecasts to compute freeze-thaw risk windows, and scores each route by its
-proximity to hazards uphill of it. Results land on a Leaflet map with source
-zone overlays and webhook alerts when risk crosses a threshold.
+proximity to hazards uphill of it. Results land on a map with source
+zone overlays and webhook alerts when risk crosses a predefined threshold.
 
-The interesting engineering constraint is scale. A single climbing area at
+The greatest engineering constraint here is scale. A single climbing area at
 1/3 arc-second resolution is ~117 million cells, and every terrain derivative
-(slope, aspect, curvature, ruggedness) is a stencil computation over all of
-them. On a single CPU thread that is multiple seconds per kernel; on a
-consumer GTX 1060 it is a few hundred milliseconds. The GPU is what makes the
-pipeline interactive rather than a batch job.
+(slope, aspect, curvature, ruggedness) is a computation over every cell.
+On a single CPU thread that is multiple seconds per kernel although on a
+consumer GTX 1060 it is a few hundred milliseconds.
 
 **GPU vs. single-threaded CPU (GTX 1060 3GB, Foster Falls, 116.9M cells)**
 
@@ -49,7 +50,7 @@ pipeline interactive rather than a batch job.
 The guiding design principle was to keep each concern in the language that fits it best and
 let a shared spatial database be the integration point.
 
-#### Go microservices over a monolith
+#### Go microservices
 
 The pipeline splits into four Go services: ingestion, GPU terrain
 preprocessing, hazard analysis, and an API gateway along with a standalone CUDA
@@ -91,7 +92,7 @@ NOAA NOMADS ──► S4 Hazard Analysis (Go) ◄────┘
                PostgreSQL + PostGIS
 ```
 
-*Fig. 2 Data flow. External inputs enter through S1, terrain derivatives are computed by the CUDA subprocess under S2, and S4 joins them with weather to score routes. S5 is the only service the client talks to.*
+*Fig. 2 Data flow. External inputs enter through S1, terrain derivatives are computed by the CUDA subprocess under S2, and S4 adds weather to score routes. S5 is what the client talks to.*
 
 ---
 
@@ -101,7 +102,7 @@ NOAA NOMADS ──► S4 Hazard Analysis (Go) ◄────┘
 
 #### The Sobel slope/aspect kernel
 
-Slope and aspect both fall out of the elevation gradient, estimated per cell
+Slope and aspect are both derrived from the elevation gradient and estimated per cell
 with a 3×3 Sobel convolution over the 8 neighbors. The horizontal and vertical
 neighbors are weighted twice as heavily as the diagonals, which sit √2 farther
 from the center:
@@ -134,12 +135,12 @@ into a compass bearing with north at 0, and any remaining negative angles get
 
 Plan/profile curvature (second derivatives of elevation) and the Terrain
 Ruggedness Index (mean absolute elevation difference to neighbors) use the same
-one-thread-per-cell pattern but have lower arithmetic intensity relative to
-memory traffic, which explains why their speedups land at 2–5× rather than 10×.
+one-thread-per-cell pattern but have lower arithmetic intensity, which explains 
+why their speedups land at 2–5× rather than 10×.
 
 #### Freeze-thaw windows
 
-S4 pulls NOAA HRRR temperature forecasts for the area's elevation band and
+S4 pulls [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) temperature forecasts for the area's elevation band and
 computes freeze-thaw cycles. Aspect determines when a face is sun-warmed, 
 so a west-facing wall and an east-facing wall get different risk timelines 
 from the same forecast.
@@ -183,5 +184,5 @@ CPU version.
 
 A continuation of this work would likely explore:
 
-- Monte Carlo simulations for rock fall to find probable rock landing areas
+- Monte Carlo simulations for rock fall to find probable rock landing zones.
 - A atmospheric model for freeze-thaw instead of a single elevation band.
