@@ -67,5 +67,35 @@ wide: true
         </div>
       </td>
     </tr>
+    <tr>
+      <td class="project-image-cell">
+        <img src="{{ '/images/cegar-abstraction.png' | relative_url }}" alt="True-positive / false-negative / true-negative map over the (X1, X2) state space for the axis-aligned bounding-box abstraction" class="project-image" onerror="this.style.display='none'">
+      </td>
+      <td class="project-content-cell">
+        <p class="project-title"><strong>CEGAR Abstraction</strong> — Conservative discrete abstractions for cyber-physical system verification</p>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">Formal Verification</span>
+          <span class="skill">CTL Model Checking</span>
+          <span class="skill">NumPy</span>
+          <span class="skill">PyTorch</span>
+        </div>
+        <p>
+          A worklist-based CEGAR (counterexample-guided abstraction refinement) tool
+          that turns a continuous state space into a finite abstraction for formal
+          verification. It partitions the space into cells (axis-aligned boxes or
+          polytopes), builds conservative transitions between them, checks a CTL-style
+          specification, and repeatedly refines cells left "unknown" until the
+          classification converges. Three case studies exercise the pipeline: a 2D
+          synthetic system, the 2D mountain-car problem, and a 3D unicycle model.
+          Companion code for the arXiv paper, written with UF's Trustworthy Engineered
+          Autonomy Laboratory.
+        </p>
+        <div class="project-links">
+          [<a href="https://arxiv.org/abs/2608.10254">paper</a>]
+          [<a href="https://github.com/{{ site.github_username }}/cegar-abstraction-tutorial">code</a>]
+        </div>
+      </td>
+    </tr>
   </tbody>
 </table>
