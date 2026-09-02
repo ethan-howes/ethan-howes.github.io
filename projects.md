@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-show_title: true
+show_title: false
 wide: true
 ---
 
