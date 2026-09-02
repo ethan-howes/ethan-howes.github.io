@@ -18,6 +18,6 @@ My interest lies in building systems end to end. From the bare-metal infrastruct
 
 <h3> Activity</h3>
 - **September 2026:** Joined the [Florida Institute of National Security](https://fins.institute.ufl.edu/) as an AI researcher.
-- **August 2026:** Continued work at Collins Aerospace as a remote Software Engineering Coop.
+- **August 2026:** Continued work at Collins Aerospace as a remote Software Engineering Co-op.
 - **May 2026:** Joined Collins Aerospace as a Software Engineering Intern.
 - **June 2025:** Joined Trustworthy Engineered Autonomy Laboratory as a Software Engineering Researcher.
