@@ -20,4 +20,4 @@ Currently a software engineering intern at **Collins Aerospace** working on low 
 - **September 2026:** Joined the [Florida Institute of National Security](https://fins.institute.ufl.edu/) as an AI researcher.
 - **August 2026:** Continued work at Collins Aerospace as a remote Software Engineering Coop.
 - **May 2026:** Joined Collins Aerospace as a Software Engineering Intern.
-- **June 2025:** Joined a the Trustworthy Engineered Autonomy Laboratory as a Software Engineering Researcher.
+- **June 2025:** Joined Trustworthy Engineered Autonomy Laboratory as a Software Engineering Researcher.
