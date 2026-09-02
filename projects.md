@@ -18,43 +18,27 @@ wide: true
   <tbody>
     <tr>
       <td class="project-image-cell">
-        <img src="{{ '/images/project1.png' | relative_url }}" alt="Project Name demo" class="project-image" onerror="this.style.display='none'">
+        <img src="{{ '/images/talus-hillshade.png' | relative_url }}" alt="Hillshade of Foster Falls, TN rendered from a USGS DEM" class="project-image" onerror="this.style.display='none'">
       </td>
       <td class="project-content-cell">
-        <p class="project-title"><strong>Project Name</strong> — Short Tagline</p>
+        <p class="project-title"><strong>Talus</strong> — Rockfall hazard scoring for climbing areas</p>
         <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">PyTorch</span>
+          <span class="skill">Go</span>
           <span class="skill">CUDA</span>
-          <span class="skill">Edge AI</span>
+          <span class="skill">PostGIS</span>
+          <span class="skill">Docker</span>
+          <span class="skill">Leaflet.js</span>
         </div>
         <p>
-          One or two punchy sentences — what it does, the headline result
-          (FPS, accuracy, speedup), and what makes it interesting.
+          End-to-end pipeline that turns a raw USGS elevation model into concrete
+          rockfall risk scores for a climbing wall. GPU terrain kernels identify
+          source zones above a route and combine with freeze-thaw windows to flag
+          hazardous days — the Sobel slope/aspect kernel runs 10.6× faster on a
+          GTX 1060 than a single-threaded CPU baseline (569&nbsp;ms vs 6,041&nbsp;ms over 116.9M cells).
         </p>
         <div class="project-links">
-          [<a href="/projects/sample-project/">blog post</a>]
-          [<a href="https://github.com/{{ site.github_username }}/project1">code</a>]
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="project-image-cell">
-        <img src="{{ '/images/project2.png' | relative_url }}" alt="Second Project demo" class="project-image" onerror="this.style.display='none'">
-      </td>
-      <td class="project-content-cell">
-        <p class="project-title">Second Project — Another Tagline</p>
-        <div class="skills">
-          <span class="skill">C++</span>
-          <span class="skill">SIMD</span>
-          <span class="skill">Performance Engineering</span>
-        </div>
-        <p>
-          What problem it solves, key results with numbers. Keep it under
-          two sentences.
-        </p>
-        <div class="project-links">
-          [<a href="https://github.com/{{ site.github_username }}/project2">code</a>]
+          [<a href="/projects/talus/">blog post</a>]
+          [<a href="https://github.com/{{ site.github_username }}/talus">code</a>]
         </div>
       </td>
     </tr>
