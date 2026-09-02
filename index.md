@@ -21,4 +21,5 @@ My interest lies in building systems end to end. From the bare-metal infrastruct
 - **August 2026:** Continued work at Collins Aerospace as a remote Software Engineering Co-op.
 - **May 2026:** Joined Collins Aerospace as a Software Engineering Intern.
 - **June 2026:** Created [Talus](/projects/talus/), a GPU-accelerated rockfall hazard pipeline for climbing areas.
+- **May 2026:** Built [Proxmox Datacenter](/projects/proxmox-datacenter/), a Dell PowerEdge R510 homelab provisioned end-to-end with Terraform and Cloud-Init.
 - **June 2025:** Joined Trustworthy Engineered Autonomy Laboratory as a Software Engineering Researcher.
