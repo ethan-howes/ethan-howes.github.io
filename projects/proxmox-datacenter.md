@@ -18,7 +18,7 @@ permalink: /projects/proxmox-datacenter/
 This is a decommissioned enterprise 2U server turned into a personal datacenter.
 The goal of this project was to make infrastructure reproducible. Every VM on the 
 machine is declared in Terraform and configures itself on first boot.
-This allows for noes to destroyed and rebuilt from a few lines of HCL rather than a
+This allows for nodes to destroyed and rebuilt from a few lines of HCL rather than a
 console session.
 
 Terraform describes each VM as a module block. `terraform apply` clones the
@@ -43,7 +43,7 @@ outside the box to keep it reachable for out-of-band recovery.
 | OS storage   | 465&nbsp;GB (2× 500&nbsp;GB, RAID 1)               |
 | VM storage   | 2.7&nbsp;TB (4× 1&nbsp;TB, RAID 5)                 |
 | Hypervisor   | Proxmox VE 9.2.3 on Debian Trixie                  |
-| Remote managment  | iDRAC6 Enterprise                                  |
+| Remote management  | iDRAC6 Enterprise                                  |
 
 ![Top-down view of the open R510 chassis]({{ '/images/proxmox-server-exterior.jpg' | relative_url }})
 
@@ -58,7 +58,7 @@ outside the box to keep it reachable for out-of-band recovery.
 #### Cloud-Init over plain Proxmox templates
 
 A bare template still runs the OS installer on every clone. It opens the console, sets
-a hostname, a password, an SSH key, and a static IP by hand. Cloud-Init then uses this information 
+a hostname, a password, an SSH key, and a static IP by hand. Cloud-Init then does the rest of the work 
 on first boot. Proxmox attaches the config as a small virtual CD that
 the VM reads on boot and applies everything before login is available.
 
@@ -72,14 +72,14 @@ the VM reads on boot and applies everything before login is available.
 The cluster runs k3s rather than Kubernetes. k3s ships as a single
 binary and needs about 500&nbsp;MB of RAM versus about 4&nbsp;GB for a full
 control plane, and it maintains state in SQLite instead of etcd. On a machine where the
-point is to save compute for workloads, the lighter k3s is more optimal and nothing
+point is to save compute for workloads, the lighter k3s is optimal and nothing
 in this homelab needs what the heavier k8s adds.
 
 #### The subnet router
 
 The subnet router lives on a Raspberry Pi 4. This machine is always on, low draw, 
 and independent of the server's state. This allows iDRAC and the local subnet to 
-be reachable from anywhere regardless of what the R510s state.
+be reachable from anywhere regardless of what the R510's state.
 
 ---
 
@@ -167,4 +167,4 @@ Tailscale overlay (100.x.x.x)
 
 - A monitoring stack (Prometheus + Grafana) pulling host and per-VM metrics.
 - GitOps for the k3s workloads so the cluster state is version-controlled too.
-- Ansible for software and dependancy installation
+- Ansible for software and dependency installation
