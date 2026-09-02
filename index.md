@@ -10,7 +10,7 @@ permalink: /
 
 Hello, I'm Ethan. I am a Computer Engineering Student at [The University of Florida](https://www.ufl.edu/).
 
-Currently a software engineering intern at **Collins Aerospace** working on low latency communication networks. Previously at **Trustworthy Engineered Autonomy Laboratory**.
+Currently a software engineering intern at **Collins Aerospace** working on low latency communication networks. Previously at UF's **Trustworthy Engineered Autonomy Laboratory**.
 
 <!-- [1–2 sentences on what drives your work — the problems you care about, the kind of impact you want to have, or what you find most interesting technically.] -->
 
