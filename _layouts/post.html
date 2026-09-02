@@ -1,0 +1,49 @@
+---
+layout: base
+---
+<!--
+  Post layout — for individual project blog posts (projects/*.md).
+
+  Front matter fields:
+    title:      → h1.title
+    subtitle:   → rendered as "Subtitle — blog" below the title
+    date:       → "Month DD, YYYY" in the meta grid
+    repo:       → links to github.com/<github_username>/<repo> (omit if no code)
+-->
+
+<article class="article-wrapper">
+  <div class="container">
+    <header class="article-header">
+      <h1 class="title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="subtitle">
+        {{ page.subtitle }} —
+        <span class="mono">blog</span>
+      </p>
+      {% endif %}
+
+      <div class="meta">
+        {% if page.date %}
+        <div class="meta-row">
+          <span class="meta-label">Published</span>
+          <span class="meta-value">{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+        {% endif %}
+        <div class="meta-row">
+          <span class="meta-label">Email</span>
+          <span class="meta-value"><a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
+        </div>
+        {% if page.repo %}
+        <div class="meta-row">
+          <span class="meta-label">Code</span>
+          <span class="meta-value"><a href="https://github.com/{{ site.github_username }}/{{ page.repo }}">github.com/{{ site.github_username }}/{{ page.repo }}</a></span>
+        </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+</article>
