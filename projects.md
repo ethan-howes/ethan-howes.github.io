@@ -55,11 +55,11 @@ wide: true
           <span class="skill">Tailscale</span>
         </div>
         <p>
-          A decommissioned Dell PowerEdge R510 turned into a personal datacenter where
-          every VM is declared in Terraform and configures itself on first boot via
-          Cloud-Init. This hosts a 5 node k3s cluster, with an always-on Raspberry Pi 4 
-          handling Tailscale subnet routing so the machine stays reachable even when it is 
-          down. Roughly ten VMs share 16 Xeon threads and 64&nbsp;GB ECC.
+          A decommissioned Dell PowerEdge R510 turned into a personal datacenter where 
+          every VM is declared in Terraform and configures itself on first boot via 
+          Cloud-Init. This hosts 5 nodes of my k3s cluster, with an always-on Raspberry 
+          Pi 4 handling Tailscale subnet routing so the machine stays reachable even 
+          when it is down. Roughly ten VMs share 16 Xeon threads and 64 GB ECC. 
         </p>
         <div class="project-links">
           [<a href="/projects/proxmox-datacenter/">blog post</a>]
@@ -94,6 +94,36 @@ wide: true
         <div class="project-links">
           [<a href="https://arxiv.org/abs/2608.10254">paper</a>]
           [<a href="https://github.com/{{ site.github_username }}/cegar-abstraction-tutorial">code</a>]
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="project-image-cell">
+        <img src="{{ '/images/omen-thumb.png' | relative_url }}" alt="Nextcloud and Immich running on the Omen Ubuntu server" class="project-image" onerror="this.style.display='none'">
+      </td>
+      <td class="project-content-cell">
+        <p class="project-title"><strong>Ubuntu Server</strong> — Self-hosted cloud platform replacing paid subscriptions</p>
+        <div class="skills">
+          <span class="skill">Ubuntu Server</span>
+          <span class="skill">Docker Compose</span>
+          <span class="skill">LVM</span>
+          <span class="skill">UFW</span>
+          <span class="skill">Tailscale</span>
+          <span class="skill">k3s</span>
+          <span class="skill">Datadog</span>
+          <span class="skill">Helm</span>
+        </div>
+        <p>
+          An Ubuntu server running Immich, Nextcloud and a Minecraft server in Docker
+          Compose across ~1.5&nbsp;TB of LVM-backed storage, cutting ~$150/yr in cloud
+          subscriptions. Hardened with SSH key-only auth, a default-deny UFW firewall
+          and a Tailscale WireGuard mesh, so nothing is exposed to the public internet.
+          It was also the first node of what is now a 7 node k3s cluster and still runs
+          the control plane, with a Datadog agent stack deployed via Helm for
+          cluster-wide log collection and fault alerting.
+        </p>
+        <div class="project-links">
+          [<a href="/projects/ubuntu-server/">blog post</a>]
         </div>
       </td>
     </tr>

@@ -24,3 +24,4 @@ My interest lies in building systems end to end. From the bare-metal infrastruct
 - **May 2026:** Built [Proxmox Datacenter](/projects/proxmox-datacenter/), a Dell PowerEdge R510 homelab provisioned end-to-end with Terraform and Cloud-Init.
 - **Feb 2026:** Co-authored [*A Pragmatic Guide to Building Conservative Discrete Abstractions of Cyber-Physical Systems*](https://arxiv.org/abs/2608.10254) with the [TEA Laboratory](https://tea.ece.ufl.edu/).
 - **June 2025:** Joined [Trustworthy Engineered Autonomy Laboratory](https://tea.ece.ufl.edu/) as a Software Engineering Researcher.
+- **May 2025:** Built [Ubuntu Server](/projects/ubuntu-server/), a self-hosted cloud platform on 1.5&nbsp;TB of LVM storage that doubles as a k3s control plane.

@@ -21,13 +21,14 @@ machine is declared in Terraform and configures itself on first boot.
 This allows for nodes to destroyed and rebuilt from a few lines of HCL rather than a
 console session.
 
-Terraform describes each VM as a module block. `terraform apply` clones the
+Terraform defines each VM as a module block. `terraform apply` clones the
 matching Proxmox template, and Cloud-Init sets the hostname, SSH key, and static
-IP before the machine finishes booting. The result is `ssh yart@<vm-ip>` with no
-password and nothing typed into a console.
+IP before the machine finishes booting.
 
-A k3s cluster runs on top of the VMs, with an always-on Raspberry Pi 4 sitting
-outside the box to keep it reachable for out-of-band recovery.
+The VMs join an existing [k3s cluster](/projects/ubuntu-server/) whose control plane
+runs on my separate Ubuntu server that was built the year before. Five of the nodes are x86 workers VMs,
+expanding the cluster to seven nodes alongside that control plane and an always-on
+Raspberry Pi 4 that also sits outside the machine for out-of-band recovery.
 
 ---
 
@@ -71,9 +72,10 @@ the VM reads on boot and applies everything before login is available.
 
 The cluster runs k3s rather than Kubernetes. k3s ships as a single
 binary and needs about 500&nbsp;MB of RAM versus about 4&nbsp;GB for a full
-control plane, and it maintains state in SQLite instead of etcd. On a machine where the
-point is to save compute for workloads, the lighter k3s is optimal and nothing
-in this homelab needs what the heavier k8s adds.
+control plane, and it maintains state in SQLite instead of etcd. The control plane
+is hosted on the Ubuntu server, instead of a VM here. K3s was chosen because on a 
+machine where the point is to save compute for workloads, the lighter k3s is optimal
+and nothing in this homelab needs what the heavier k8s add
 
 #### The subnet router
 
@@ -141,6 +143,7 @@ TP-Link AX1300 (192.168.0.1)
 
 Tailscale overlay (100.x.x.x)
     ├── proxmox-datacenter
+    ├── omen-server          k3s control plane
     ├── k3s-raspi4b-1        subnet router for 192.168.0.0/24
     └── other clients
 ```
@@ -157,7 +160,7 @@ Tailscale overlay (100.x.x.x)
 
 ![terraform apply alongside qm list and kubectl get nodes]({{ '/images/proxmox-terraform-k3s.png' | relative_url }})
 
-*Fig. 4 Everything in one screen: `terraform apply` on the left, `qm list` showing the four templates and the running VMs, and `kubectl get nodes` showing the control plane, five workers, and the Raspberry Pi all `Ready` on k3s.*
+*Fig. 4 Everything in one screen: `terraform apply` on the left, `qm list` showing the four templates and the running VMs, and `kubectl get nodes` showing the control plane on the Ubuntu server, five R510 workers, and the Raspberry Pi. Seven nodes `Ready` on k3s.*
 
 ---
 
